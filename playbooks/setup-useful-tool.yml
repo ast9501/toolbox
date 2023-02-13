@@ -1,5 +1,5 @@
 - hosts: management
   roles:
-    #- { role: tools, become: yes }
-    #- { role: croc, become: yes }
+    - { role: tools, become: yes }
+    - { role: croc, become: yes }
     - { role: zsh, become: false }
