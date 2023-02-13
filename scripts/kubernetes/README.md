@@ -11,3 +11,6 @@ uuid 4b773515-4911-4393-8265-4f7786de4774 is cert-manager-99bb69456-r997b
 uuid 4efcdf44-cec9-431e-be48-11f8e7e437f8 is cert-manager-cainjector-ffb4747bb-djzz4
 uuid 5547cf6d-e481-4858-b94b-e9756abdbdc1 is catalog-operator-774d464fdd-bbq5v
 ```
+
+## Support
+https://stackoverflow.com/questions/69871895/how-to-map-the-guids-under-var-lib-kubelet-pods-to-the-actual-pods
