@@ -1,0 +1,47 @@
+---
+- name: clone oh-my-zsh project
+  become: false
+  ansible.builtin.git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
+    single_branch: yes
+    version: master
+
+- name: copy .zsh template
+  become: false
+  ansible.builtin.copy:
+    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+    dest: ~/.zshrc
+    mode: '0644'
+
+- name: change default shell
+  become: true
+  shell: chsh -s /bin/zsh
+  args:
+    warn: no
+
+- name: Download bullet train theme
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme
+    dest: ~/.oh-my-zsh/themes/bullet-train.zsh-theme
+    mode: '0644'
+
+- name: clone zsh-autosuggestions plugin
+  become: false
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    single_branch: yes
+    version: master
+
+- name: Replace theme
+  ansible.builtin.lineinfile:
+    path: ~/.zshrc
+    regexp: 'ZSH_THEME="*"'
+    line: 'ZSH_THEME="bullet-train"'
+
+- name: Config plugin
+  ansible.builtin.lineinfile:
+    path: ~/.zshrc
+    regexp: 'plugins*'
+    line: 'plugins=(git zsh-autosuggestions)'

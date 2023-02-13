@@ -1,0 +1,6 @@
+---
+pkgs:
+  - curl
+  - jq
+  - direnv
+  - zsh
