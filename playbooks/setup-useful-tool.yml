@@ -3,3 +3,4 @@
     - { role: tools, become: yes }
     - { role: croc, become: yes }
     - { role: zsh, become: false }
+    - { role: vim, become: yes }

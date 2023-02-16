@@ -1,0 +1,14 @@
+---
+- name: install vim
+  apt:
+    name: "{{ pkgs }}"
+    update_cache: yes
+    state: present
+  with_items: "{{ pkgs }}"
+
+- name: copy .vimrc to home
+  become: false
+  copy:
+    src: ../files/.vimrc
+    dest: ~/.vimrc
+    mode: 0664
