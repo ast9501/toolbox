@@ -4,7 +4,6 @@
   ansible.builtin.git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: ~/.oh-my-zsh
-    single_branch: yes
     version: master
 
 - name: copy .zsh template
@@ -31,7 +30,6 @@
   ansible.builtin.git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
     dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-    single_branch: yes
     version: master
 
 - name: Replace theme
